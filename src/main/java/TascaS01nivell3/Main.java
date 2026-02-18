@@ -291,7 +291,8 @@ public class Main {
         System.out.println("Text:" + news.get(position).getText());
 
         String tipus = news.get(position).getType();
-        if(tipus.equals("class Fooball"))
+
+        if(tipus.equals("class TascaS01nivell3.Fooball"))
         {
             Football noticia = (Football) news.get(position);
             System.out.println("Tipus de noticia: Fútbol.");
@@ -299,27 +300,28 @@ public class Main {
             System.out.println("Club:" + noticia.getClub());
             System.out.println("Jugador: " + noticia.getPlayer());
         }
-        else if(tipus.equals("class Basket"))
+        else if(tipus.equals("class TascaS01nivell3.Basket"))
         {
             System.out.println("Tipus de noticia: Basket.");
             Basket noticia = (Basket) news.get(position);
             System.out.println("Competició: " + noticia.getCompetition());
             System.out.println("Club:" + noticia.getClub());
         }
-        else if(tipus.equals("class Tenis"))
+        else if(tipus.equals("class TascaS01nivell3.Tenis"))
         {
             System.out.println("Tipus de noticis: Tenis");
             Tenis noticia = (Tenis) news.get(position);
             System.out.println("Competició: " + noticia.getCompetition());
+            System.out.println("Llista de tenistes:");
             showPlayers(noticia.getPlayers());
         }
-        else if(tipus.equals("class F1"))
+        else if(tipus.equals("class TascaS01nivell3.F1"))
         {
             System.out.println("Tipus de noticia: F1");
             F1 noticia = (F1) news.get(position);
             System.out.println("Escuderia: " + noticia.getTeam());
         }
-        else if(tipus.equals("class Motorcycling"))
+        else if(tipus.equals("class TascaS01nivell3.Motorcycling"))
         {
             System.out.println("Tipus de noticia: Motos");
             Motorcycling noticia = (Motorcycling) news.get(position);
@@ -546,7 +548,7 @@ public class Main {
                 System.out.println("-----------------------------------------");
                 System.out.println("Vols seleccionar el redactor de una llista o posar el dni?");
                 System.out.println("1 - Seleccionar de llista.");
-                System.out.println("2 - Posar dni.");
+                System.out.println("2 - Posar nom.");
                 String selectmode = scanner.nextLine();
                 int editorsearch = 0;
                 if(selectmode.equals("1"))
@@ -569,7 +571,14 @@ public class Main {
                     System.out.println("Introdueix el nom del redactor.");
                     String name = scanner.nextLine();
                     editorsearch = searchName(name);
-                    shownewsDNI(editors.get(editorsearch).getDni());
+                    if (editorsearch == -1)
+                    {
+                        System.out.println("No es troba el redactor");
+                    }
+                    else
+                    {
+                        shownewsDNI(editors.get(editorsearch).getDni());
+                    }
                 }
                 else {
                     System.out.println("Opció incorrecte");
