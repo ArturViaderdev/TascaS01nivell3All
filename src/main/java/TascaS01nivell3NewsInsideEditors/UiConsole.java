@@ -1,5 +1,6 @@
-package TascaS01nivell3;
+package TascaS01nivell3NewsInsideEditors;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class UiConsole {
@@ -69,8 +70,6 @@ public class UiConsole {
                     if(dataMethods.deleteeditordni(dnidelete))
                     {
                         System.out.println("Redactor eliminat");
-                        System.out.println("Eliminant noticies del redactor");
-                        dataMethods.deletenewsDni(dnidelete);
                     }
                     else
                     {
@@ -107,42 +106,42 @@ public class UiConsole {
                         if(newtype.equals("1"))
                         {
                             System.out.println("Creant noticia de futbol per al redactor " + dataMethods.getEditorName(editornew-1)) ;
-                            noticia = new Football(dni);
+                            noticia = new Football();
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewFootball((Football) noticia);
-                            dataMethods.addNew(noticia);
+                            dataMethods.addNew(noticia,dni);
                         }
                         else if(newtype.equals("2"))
                         {
                             System.out.println("Creant noticia de baquet per al redactor " + dataMethods.getEditorName(editornew-1)) ;
-                            noticia = new Basket(dni);
+                            noticia = new Basket();
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewBasket((Basket) noticia);
-                            dataMethods.addNew(noticia);
+                            dataMethods.addNew(noticia,dni);
                         }
                         else if(newtype.equals("3"))
                         {
                             System.out.println("Creant noticia de tenis per al redactor " + dataMethods.getEditorName(editornew-1)) ;
-                            noticia = new Tenis(dni);
+                            noticia = new Tenis();
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewTenis((Tenis) noticia);
-                            dataMethods.addNew(noticia);
+                            dataMethods.addNew(noticia,dni);
                         }
                         else if(newtype.equals("4"))
                         {
                             System.out.println("Creant noticia de F1 per al redactor " + dataMethods.getEditorName(editornew-1)) ;
-                            noticia = new F1(dni);
+                            noticia = new F1();
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewF1((F1) noticia);
-                            dataMethods.addNew(noticia);
+                            dataMethods.addNew(noticia,dni);
                         }
                         else if(newtype.equals("5"))
                         {
                             System.out.println("Creant noticia de motociclisme per al redactor " + dataMethods.getEditorName(editornew-1)) ;
-                            noticia = new Motorcycling(dni);
+                            noticia = new Motorcycling();
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewMotorcycling((Motorcycling) noticia);
-                            dataMethods.addNew(noticia);
+                            dataMethods.addNew(noticia,dni);
                         }
                         System.out.println("Noticia afegida.");
                     }
@@ -176,7 +175,7 @@ public class UiConsole {
                 }
                 else if(resultat == 2)
                 {
-                    System.out.println("Existeix una noticia amb aquest títol pero no es de aquest redactor. Operació cancelada.");
+                    System.out.println("No existeix el redactor.");
                 }
 
             }
@@ -226,44 +225,56 @@ public class UiConsole {
             {
                 System.out.println("Calcular la puntuació d'una noticia");
                 System.out.println("-----------------------------------");
-                System.out.println("Selecciona la noticia");
-                dataMethods.showNews();
-                try
+                System.out.println("Introdueix el nom del redactor.");
+                String name = scanner.nextLine();
+                int editorsearch = dataMethods.searchName(name);
+                if (editorsearch == -1)
                 {
-                    int choose = Integer.parseInt(scanner.nextLine());
-
-                    if(dataMethods.rangeNewCorrect(choose));
-                    {
-                        choose--;
-                        dataMethods.calculatePointsNew(choose);
-                        System.out.println("Puntuació: " + dataMethods.getPointsNew(choose));
-                    }
+                    System.out.println("No es troba el redactor");
                 }
-                catch(Exception ex)
-                {
-                    System.out.println("Error de entrada.");
+                else {
+                    System.out.println("Selecciona la noticia");
+                    dataMethods.showNews(editorsearch);
+                    try {
+                        int choose = Integer.parseInt(scanner.nextLine());
+
+                        if (dataMethods.rangeNewCorrect(choose,editorsearch)) ;
+                        {
+                            choose--;
+                            dataMethods.calculatePointsNew(choose,editorsearch);
+                            System.out.println("Puntuació: " + dataMethods.getPointsNew(choose,editorsearch));
+                        }
+                    } catch (Exception ex) {
+                        System.out.println("Error de entrada.");
+                    }
                 }
             }
             else if(opcio.equals("7"))
             {
                 System.out.println("Calcular el preu d'una noticia");
                 System.out.println("------------------------------");
-                System.out.println("Selecciona la noticia");
-                dataMethods.showNews();
-                try
+                System.out.println("Introdueix el nom del redactor.");
+                String name = scanner.nextLine();
+                int editorsearch = dataMethods.searchName(name);
+                if (editorsearch == -1)
                 {
-                    int choose = Integer.parseInt(scanner.nextLine());
-
-                    if(dataMethods.rangeNewCorrect(choose));
-                    {
-                        choose--;
-                        dataMethods.calculatePriceNew(choose);
-                        System.out.println("Preu: " + dataMethods.getNewPrice(choose));
-                    }
+                    System.out.println("No es troba el redactor");
                 }
-                catch(Exception ex)
-                {
-                    System.out.println("Error de entrada.");
+                else {
+                    System.out.println("Selecciona la noticia");
+                    dataMethods.showNews(editorsearch);
+                    try {
+                        int choose = Integer.parseInt(scanner.nextLine());
+
+                        if (dataMethods.rangeNewCorrect(choose,editorsearch)) ;
+                        {
+                            choose--;
+                            dataMethods.calculatePriceNew(choose,editorsearch);
+                            System.out.println("Preu: " + dataMethods.getNewPrice(choose,editorsearch));
+                        }
+                    } catch (Exception ex) {
+                        System.out.println("Error de entrada.");
+                    }
                 }
             }
 

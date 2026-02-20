@@ -1,15 +1,12 @@
-package TascaS01nivell3;
+package TascaS01nivell3NewsInsideEditors;
 
 import java.util.ArrayList;
 
 public class DataMethods {
     private ArrayList<Editor> editors;
-    private ArrayList<Noticia> news;
     public DataMethods()
     {
         editors = new ArrayList<>();
-        news = new ArrayList<>();
-
     }
 
     public void insertEditor(String dni, String name)
@@ -73,8 +70,6 @@ public class DataMethods {
             String dni = editors.get(editortodelete-1).getDni();
             deleteeditor(editortodelete-1);
             System.out.println("Redactor eliminat");
-            System.out.println("Eliminant noticies del redactor.");
-            deletenewsDni(dni);
         }
         else{
             System.out.println("Opció incorrecta.");
@@ -85,22 +80,6 @@ public class DataMethods {
     {
         editors.remove(editortodelete);
         System.out.println("Redactor el.liminat");
-    }
-
-    public void deletenewsDni(String dni)
-    {
-        int cont=0;
-        while(cont<news.size())
-        {
-            if(news.get(cont).getEditordni().equals(dni))
-            {
-                news.remove(cont);
-            }
-            else
-            {
-                cont++;
-            }
-        }
     }
 
     public boolean rangeEditorCorrect(int editornew)
@@ -115,9 +94,9 @@ public class DataMethods {
         }
     }
 
-    public boolean rangeNewCorrect(int choose)
+    public boolean rangeNewCorrect(int choose,int editorsearch)
     {
-        if(choose>0 && choose<=news.size()-1)
+        if(choose>0 && choose<=editors.get(editorsearch).getNewsSize()-1)
         {
             return true;
         }
@@ -136,50 +115,50 @@ public class DataMethods {
         return editors.get(editornew).getName();
     }
 
-    public void addNew(Noticia noticia)
+    public void addNew(Noticia noticia,String dni)
     {
-        news.add(noticia);
+        editors.get(searchDni(dni)).addNew(noticia);
     }
 
     public int deleteNew(String name, String title)
     {
-        int cont = 0;
-        boolean sal = false;
-        boolean encontrado = false;
-        while(!sal)
+        int pos = searchName(name);
+        if(pos==-1)
         {
-            if(cont<news.size())
+            return 2;
+        }
+        else
+        {
+            int cont=0;
+            boolean sal = false;
+            boolean encontrado = false;
+            while(!sal)
             {
-                if(news.get(cont).getTitle().equals(title))
-                {
-                    encontrado = true;
-                    sal = true;
+                if(cont<editors.get(pos).getNewsSize()){
+                    if(editors.get(pos).getNew(cont).getTitle().equals(title))
+                    {
+                        encontrado = true;
+                        sal = true;
+                    }
+                    else
+                    {
+                        cont++;
+                    }
                 }
                 else
                 {
-                    cont++;
+                    sal = true;
                 }
             }
-            else
+            if(encontrado)
             {
-                sal = true;
-            }
-        }
-        if(encontrado)
-        {
-            if(editors.get(searchDni(news.get(cont).getEditordni())).getName().equals(name))
-            {
-                news.remove(cont);
+                editors.get(pos).removeNew(cont);
                 return 0;
             }
             else
             {
-                return 2;
+                return 1;
             }
-        }
-        else
-        {
-            return 1;
         }
     }
 
@@ -219,24 +198,22 @@ public class DataMethods {
 
     public void shownewsDNI(String dni)
     {
-        int cont = 0;
-        while(cont<news.size())
-        {
-            if(news.get(cont).getEditordni().equals(dni))
-            {
-                showNew(cont);
-            }
+        int poseditor = searchDni(dni);
+        int size = editors.get(poseditor).getNewsSize();
+        int cont =0;
+        while(cont<size) {
+            showNew(cont,poseditor);
             cont++;
         }
     }
 
-    public void showNews()
+    public void showNews(int editorsearch)
     {
         int cont = 0;
-        while(cont<news.size())
+        while(cont<editors.get(editorsearch).getNewsSize())
         {
             System.out.println(Integer.toString(cont+1));
-            showNew(cont);
+            showNew(cont,editorsearch);
             cont++;
         }
     }
@@ -251,66 +228,66 @@ public class DataMethods {
         }
     }
 
-    private void showNew(int position)
+    private void showNew(int position,int poseditor)
     {
-        System.out.println("Títol:" + news.get(position).getTitle());
-        System.out.println("Text:" + news.get(position).getText());
+        System.out.println("Títol:" + editors.get(poseditor).getNew(position).getTitle());
+        System.out.println("Text:" + editors.get(poseditor).getNew(position).getText());
 
-        if(news.get(position) instanceof Football) {
+        if(editors.get(poseditor).getNew(position) instanceof Football) {
 
-            Football noticia = (Football) news.get(position);
+            Football noticia = (Football) editors.get(poseditor).getNew(position);
             System.out.println("Tipus de noticia: Fútbol.");
             System.out.println("Competició: " + noticia.getCompetition());
             System.out.println("Club:" + noticia.getClub());
             System.out.println("Jugador: " + noticia.getPlayer());
         }
-        else if(news.get(position) instanceof Basket)
+        else if(editors.get(poseditor).getNew(position) instanceof Basket)
         {
             System.out.println("Tipus de noticia: Basket.");
-            Basket noticia = (Basket) news.get(position);
+            Basket noticia = (Basket) editors.get(poseditor).getNew(position);
             System.out.println("Competició: " + noticia.getCompetition());
             System.out.println("Club:" + noticia.getClub());
         }
-        else if(news.get(position) instanceof Tenis)
+        else if(editors.get(poseditor).getNew(position) instanceof Tenis)
         {
             System.out.println("Tipus de noticis: Tenis");
-            Tenis noticia = (Tenis) news.get(position);
+            Tenis noticia = (Tenis) editors.get(poseditor).getNew(position);
             System.out.println("Competició: " + noticia.getCompetition());
             System.out.println("Llista de tenistes:");
             showPlayers(noticia.getPlayers());
         }
-        else if(news.get(position) instanceof F1)
+        else if (editors.get(poseditor).getNew(position) instanceof F1)
         {
             System.out.println("Tipus de noticia: F1");
-            F1 noticia = (F1) news.get(position);
+            F1 noticia = (F1) editors.get(poseditor).getNew(position);
             System.out.println("Escuderia: " + noticia.getTeam());
         }
-        else if(news.get(position) instanceof Motorcycling)
+        else if(editors.get(poseditor).getNew(position) instanceof Motorcycling)
         {
             System.out.println("Tipus de noticia: Motos");
-            Motorcycling noticia = (Motorcycling) news.get(position);
+            Motorcycling noticia = (Motorcycling) editors.get(poseditor).getNew(position);
             System.out.println("Equip: " + noticia.getTeam());
         }
     }
 
-    public void calculatePointsNew(int position)
+    public void calculatePointsNew(int position,int editorsearch)
     {
-        news.get(position).CalculatePointsNew();
+        editors.get(editorsearch).getNew(position).CalculatePointsNew();
     }
 
-    public void calculatePriceNew(int choose)
+    public void calculatePriceNew(int choose, int editorsearch)
     {
-        news.get(choose).CalculatePriceNew();
+        editors.get(editorsearch).getNew(choose).CalculatePointsNew();
     }
 
-    public int getPointsNew(int choose)
+    public int getPointsNew(int choose, int editorsearch)
     {
-        return news.get(choose).getPoints();
+        return editors.get(editorsearch).getNew(choose).getPoints();
     }
 
-    public double getNewPrice(int choose)
+    public double getNewPrice(int choose, int editorsearch)
     {
-        return news.get(choose).getPrice();
+        return editors.get(editorsearch).getNew(choose).getPrice();
     }
 
     public boolean deleteeditordni(String dni)
