@@ -1,6 +1,6 @@
 package TascaS01nivell3;
 
-public class Motorcycling extends New {
+public class Motorcycling extends Noticia {
     private String team;
 
     public String getTeam()

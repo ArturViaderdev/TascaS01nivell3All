@@ -1,6 +1,6 @@
 package TascaS01nivell3;
 
-public class Football extends New {
+public class Football extends Noticia {
     private String competition;
     private String club;
     private String player;
@@ -63,7 +63,7 @@ public class Football extends New {
         {
             this.setPoints(this.getPoints()+3);
         }
-        if(competition.contains("Liga"))
+        else if(competition.contains("Liga"))
         {
             this.setPoints(this.getPoints()+2);
         }

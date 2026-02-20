@@ -1,6 +1,6 @@
 package TascaS01nivell3;
 
-public class F1 extends New {
+public class F1 extends Noticia {
     private String team;
 
     public F1(String editordni) {

@@ -2,7 +2,7 @@ package TascaS01nivell3;
 
 import java.util.ArrayList;
 
-public class Tenis extends New {
+public class Tenis extends Noticia {
     private String competition;
     private ArrayList<String> players;
 
@@ -40,7 +40,7 @@ public class Tenis extends New {
         {
             if(cont<players.size())
             {
-                if(players.get(cont).equals("Federer Nadal")|| players.get(cont).equals("Djokovic"))
+                if(players.get(cont).contains("Federer")|| players.get(cont).contains("Nadal") || players.get(cont).contains("Djokovic"))
                 {
                     encontrado = true;
                     sal = true;

@@ -1,6 +1,6 @@
 package TascaS01nivell3;
 
-public class Basket extends New {
+public class Basket extends Noticia {
     private String club;
     private String competition;
 

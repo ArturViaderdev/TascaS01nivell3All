@@ -7,7 +7,11 @@ abstract class Phone {
     public void call(int number)
     {
         System.out.println("S'està trucant al número " + Integer.toString(number));
+    }
 
-
+    public Phone(String brand, String model)
+    {
+        this.brand = brand;
+        this.model = model;
     }
 }

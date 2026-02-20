@@ -1,20 +1,19 @@
-## Exercici 1 Instruments musicals
+## Exercise 1 Musical Instruments
 
-Podem veure quan s'executa un bloc static i quan s'executa el constructor normal.
-També podem veure com es creen objectes extenen una classe abstracta i la crida a un mètode personalitzar per a cada classe.
+We can observe when a static block is executed and when a normal constructor is executed.
+Also, we can observe how the objects that extends an abstract class are created and the call to a personalized method for each class. 
 
-## TascaS101 Nivell 2
+## Exercise 2 Cars
 
-Demostració de utilització de les interficies.
+Only the attributes that are not final can be initialized from the constructor.
 
+The final variables can't be never modified and can't be initialized from the constructor.
 
-## Exercici 2 Cotxes
+The static variables affects all the class instances.
 
-Només els atributs que no són final poden esser inicialitzats des del constructor.
+## Task S101 Level 2
 
-Les variables final no es poden modificar mai.
+Demonstration of the correct use of the interfaces.
 
-Les variables static afecten a totes les instàncies de la classe.
-
-## Tasca S101 Nivell 3
-Implemento un programa que guarda autors i noticies de diferents tipus d'esports amb diferents propietats.
+## Task S101 Level 3
+I implement a program that saves editors and sport news of diverse kinds with different proprieties.

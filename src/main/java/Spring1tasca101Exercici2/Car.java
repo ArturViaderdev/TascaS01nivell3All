@@ -3,11 +3,11 @@ package Spring1tasca101Exercici2;
 public class Car {
     private static final String brand = "Ford";
     private static String model;
-    private static final Integer power = 160;
+    private final Integer power;
 
-    public Car()
+    public Car(Integer power)
     {
-        model = "Kuga";
+        this.power = power;
     }
 
     public void setModel(String model)
@@ -32,11 +32,11 @@ public class Car {
 
     public static void brake()
     {
-        System.out.println("El vehicle està frenant.");
+        System.out.println("El vehicle està frenant. CLasse estàtica.");
     }
 
     public void accelerate()
     {
-        System.out.println("El vehicle està accelerant.");
+        System.out.println("El vehicle està accelerant. Instància.");
     }
 }

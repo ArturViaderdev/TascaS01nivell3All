@@ -1,6 +1,6 @@
 package TascaS01nivell3;
 
-abstract class New {
+abstract class Noticia {
     private String title;
     private String text;
     private double price;
@@ -60,7 +60,7 @@ abstract class New {
         return editordni;
     }
 
-    public New(String editordni)
+    public Noticia(String editordni)
     {
         this.editordni = editordni;
     }
