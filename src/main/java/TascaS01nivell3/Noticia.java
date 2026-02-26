@@ -7,8 +7,8 @@ abstract class Noticia {
     private int points;
     private String editordni;
 
-    public abstract void CalculatePriceNew();
-    public abstract void CalculatePointsNew();
+    public abstract void calculatePriceNew();
+    public abstract void calculatePointsNew();
 
     public void setPrice(double price)
     {
@@ -60,7 +60,7 @@ abstract class Noticia {
         return editordni;
     }
 
-    public Noticia(String editordni)
+    public Noticia(String editorDni)
     {
         this.editordni = editordni;
     }

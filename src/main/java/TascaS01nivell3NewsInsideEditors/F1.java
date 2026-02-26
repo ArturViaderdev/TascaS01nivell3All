@@ -18,7 +18,7 @@ public class F1 extends Noticia {
     }
 
     @Override
-    public void CalculatePriceNew() {
+    public void calculatePriceNew() {
         this.setPrice(100);
         if(team.equals("Ferrari") || team.equals("Mercedes"))
         {
@@ -27,7 +27,7 @@ public class F1 extends Noticia {
     }
 
     @Override
-    public void CalculatePointsNew() {
+    public void calculatePointsNew() {
         this.setPoints(4);
         if(team.equals("Ferrari") || team.equals("Mercedes"))
         {

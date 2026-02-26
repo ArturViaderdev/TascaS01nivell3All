@@ -14,7 +14,7 @@ public class DataMethods {
 
     public void insertEditor(String dni, String name)
     {
-        if(notexisteditor(dni) && noexistnom(name))
+        if(notExistEditor(dni) && noExistName(name))
         {
             editors.add(new Editor(dni,name));
             System.out.println("Editor afegit");
@@ -24,7 +24,7 @@ public class DataMethods {
         }
     }
 
-    private boolean noexistnom(String name)
+    private boolean noExistName(String name)
     {
         int cont = 0;
         boolean sal = false;
@@ -40,7 +40,7 @@ public class DataMethods {
         return true;
     }
 
-    private boolean notexisteditor(String dni)
+    private boolean notExistEditor(String dni)
     {
         int cont = 0;
         boolean sal = false;
@@ -71,23 +71,23 @@ public class DataMethods {
         if(editors.size()>editortodelete-1)
         {
             String dni = editors.get(editortodelete-1).getDni();
-            deleteeditor(editortodelete-1);
+            deleteEditor(editortodelete-1);
             System.out.println("Redactor eliminat");
             System.out.println("Eliminant noticies del redactor.");
-            deletenewsDni(dni);
+            deleteNewsDni(dni);
         }
         else{
             System.out.println("Opció incorrecta.");
         }
     }
 
-    private void deleteeditor(int editortodelete)
+    private void deleteEditor(int editortodelete)
     {
         editors.remove(editortodelete);
         System.out.println("Redactor el.liminat");
     }
 
-    public void deletenewsDni(String dni)
+    public void deleteNewsDni(String dni)
     {
         int cont=0;
         while(cont<news.size())
@@ -217,7 +217,7 @@ public class DataMethods {
         }
     }
 
-    public void shownewsDNI(String dni)
+    public void showNewsDNI(String dni)
     {
         int cont = 0;
         while(cont<news.size())
@@ -295,12 +295,12 @@ public class DataMethods {
 
     public void calculatePointsNew(int position)
     {
-        news.get(position).CalculatePointsNew();
+        news.get(position).calculatePointsNew();
     }
 
     public void calculatePriceNew(int choose)
     {
-        news.get(choose).CalculatePriceNew();
+        news.get(choose).calculatePriceNew();
     }
 
     public int getPointsNew(int choose)
@@ -313,7 +313,7 @@ public class DataMethods {
         return news.get(choose).getPrice();
     }
 
-    public boolean deleteeditordni(String dni)
+    public boolean deleteEditorDni(String dni)
     {
         int cont = 0;
         boolean sal = false;

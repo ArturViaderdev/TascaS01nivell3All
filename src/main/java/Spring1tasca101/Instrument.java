@@ -1,8 +1,8 @@
 package Spring1tasca101;
 
 abstract class Instrument {
-    private String name;
-    private double price;
+    public String name;
+    public double price;
 
     abstract void play();
 
@@ -11,7 +11,7 @@ abstract class Instrument {
         System.out.println("Bloc estàtic, s'executa al principi.");
     }
 
-    public static void MetodeEstatic()
+    public static void metodeEstatic()
     {
         System.out.println("S'executa un mètode estàtic.");
     }

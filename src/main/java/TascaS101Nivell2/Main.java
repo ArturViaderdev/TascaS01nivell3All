@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Smartphone smartphone = new Smartphone("Iphone","15");
         smartphone.call(1234567);
-        smartphone.takephoto();
+        smartphone.takePhoto();
         smartphone.alert();
     }
 }

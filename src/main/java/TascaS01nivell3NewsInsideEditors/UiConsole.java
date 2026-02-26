@@ -45,29 +45,29 @@ public class UiConsole {
                     System.out.println("Quin redactor vols eliminar?");
                     System.out.println("0 - Cancel.lar");
                     dataMethods.showEditors();
-                    int editortodelete = 0;
+                    int editorToDelete = 0;
                     try
                     {
-                        editortodelete = Integer.parseInt(scanner.nextLine());
+                        editorToDelete = Integer.parseInt(scanner.nextLine());
                     }
                     catch(Exception ex)
                     {
                         System.out.println("Opció incorrecta");
                     }
-                    if(editortodelete==0)
+                    if(editorToDelete==0)
                     {
                         System.out.println("Operació cancel.lada");
                     }
                     else
                     {
-                        dataMethods.deleteEditorProcess(editortodelete);
+                        dataMethods.deleteEditorProcess(editorToDelete);
                     }
                 }
                 else if(tipus.equals("1"))
                 {
                     System.out.println("Introdueix el dni del redactor que vols eliminar.");
-                    String dnidelete = scanner.nextLine();
-                    if(dataMethods.deleteeditordni(dnidelete))
+                    String dniDelete = scanner.nextLine();
+                    if(dataMethods.deleteEditorDni(dniDelete))
                     {
                         System.out.println("Redactor eliminat");
                     }
@@ -187,16 +187,16 @@ public class UiConsole {
                 System.out.println("1 - Seleccionar de llista.");
                 System.out.println("2 - Posar nom.");
                 String selectmode = scanner.nextLine();
-                int editorsearch = 0;
+                int editorSearch = 0;
                 if(selectmode.equals("1"))
                 {
                     dataMethods.showEditors();
                     try
                     {
-                        editorsearch = Integer.parseInt(scanner.nextLine());
-                        editorsearch--;
-                        String dni = dataMethods.getEditorDNI(editorsearch);
-                        dataMethods.shownewsDNI(dni);
+                        editorSearch = Integer.parseInt(scanner.nextLine());
+                        editorSearch--;
+                        String dni = dataMethods.getEditorDNI(editorSearch);
+                        dataMethods.showNewsDNI(dni);
                     }
                     catch(Exception ex)
                     {
@@ -207,14 +207,14 @@ public class UiConsole {
                 {
                     System.out.println("Introdueix el nom del redactor.");
                     String name = scanner.nextLine();
-                    editorsearch = dataMethods.searchName(name);
-                    if (editorsearch == -1)
+                    editorSearch = dataMethods.searchName(name);
+                    if (editorSearch == -1)
                     {
                         System.out.println("No es troba el redactor");
                     }
                     else
                     {
-                        dataMethods.shownewsDNI(dataMethods.getEditorDNI(editorsearch));
+                        dataMethods.showNewsDNI(dataMethods.getEditorDNI(editorSearch));
                     }
                 }
                 else {
@@ -238,7 +238,7 @@ public class UiConsole {
                     try {
                         int choose = Integer.parseInt(scanner.nextLine());
 
-                        if (dataMethods.rangeNewCorrect(choose,editorsearch)) ;
+                        if (dataMethods.rangeNewCorrect(choose,editorsearch))
                         {
                             choose--;
                             dataMethods.calculatePointsNew(choose,editorsearch);

@@ -44,33 +44,33 @@ public class UiConsole {
                     System.out.println("Quin redactor vols eliminar?");
                     System.out.println("0 - Cancel.lar");
                     dataMethods.showEditors();
-                    int editortodelete = 0;
+                    int editorToDelete = 0;
                     try
                     {
-                        editortodelete = Integer.parseInt(scanner.nextLine());
+                        editorToDelete = Integer.parseInt(scanner.nextLine());
                     }
                     catch(Exception ex)
                     {
                         System.out.println("Opció incorrecta");
                     }
-                    if(editortodelete==0)
+                    if(editorToDelete==0)
                     {
                         System.out.println("Operació cancel.lada");
                     }
                     else
                     {
-                        dataMethods.deleteEditorProcess(editortodelete);
+                        dataMethods.deleteEditorProcess(editorToDelete);
                     }
                 }
                 else if(tipus.equals("1"))
                 {
                     System.out.println("Introdueix el dni del redactor que vols eliminar.");
-                    String dnidelete = scanner.nextLine();
-                    if(dataMethods.deleteeditordni(dnidelete))
+                    String dniDelete = scanner.nextLine();
+                    if(dataMethods.deleteEditorDni(dniDelete))
                     {
                         System.out.println("Redactor eliminat");
                         System.out.println("Eliminant noticies del redactor");
-                        dataMethods.deletenewsDni(dnidelete);
+                        dataMethods.deleteNewsDni(dniDelete);
                     }
                     else
                     {
@@ -87,14 +87,14 @@ public class UiConsole {
                 System.out.println("-------------------------------");
                 System.out.println("Sel.lecciona a quin redactor afegiras la noticia.");
                 dataMethods.showEditors();
-                int editornew;
+                int editorNew;
                 try
                 {
-                    editornew = Integer.parseInt(scanner.nextLine());
-                    if(dataMethods.rangeEditorCorrect(editornew))
+                    editorNew = Integer.parseInt(scanner.nextLine());
+                    if(dataMethods.rangeEditorCorrect(editorNew))
                     {
                         Noticia noticia;
-                        String dni = dataMethods.getEditorDNI(editornew-1);
+                        String dni = dataMethods.getEditorDNI(editorNew-1);
                         System.out.println("Selecciona el tipus de noticia.");
                         System.out.println("1-Futbol");
                         System.out.println("2-Basquet");
@@ -106,7 +106,7 @@ public class UiConsole {
 
                         if(newtype.equals("1"))
                         {
-                            System.out.println("Creant noticia de futbol per al redactor " + dataMethods.getEditorName(editornew-1)) ;
+                            System.out.println("Creant noticia de futbol per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
                             noticia = new Football(dni);
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewFootball((Football) noticia);
@@ -114,7 +114,7 @@ public class UiConsole {
                         }
                         else if(newtype.equals("2"))
                         {
-                            System.out.println("Creant noticia de baquet per al redactor " + dataMethods.getEditorName(editornew-1)) ;
+                            System.out.println("Creant noticia de baquet per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
                             noticia = new Basket(dni);
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewBasket((Basket) noticia);
@@ -122,7 +122,7 @@ public class UiConsole {
                         }
                         else if(newtype.equals("3"))
                         {
-                            System.out.println("Creant noticia de tenis per al redactor " + dataMethods.getEditorName(editornew-1)) ;
+                            System.out.println("Creant noticia de tenis per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
                             noticia = new Tenis(dni);
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewTenis((Tenis) noticia);
@@ -130,7 +130,7 @@ public class UiConsole {
                         }
                         else if(newtype.equals("4"))
                         {
-                            System.out.println("Creant noticia de F1 per al redactor " + dataMethods.getEditorName(editornew-1)) ;
+                            System.out.println("Creant noticia de F1 per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
                             noticia = new F1(dni);
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewF1((F1) noticia);
@@ -138,7 +138,7 @@ public class UiConsole {
                         }
                         else if(newtype.equals("5"))
                         {
-                            System.out.println("Creant noticia de motociclisme per al redactor " + dataMethods.getEditorName(editornew-1)) ;
+                            System.out.println("Creant noticia de motociclisme per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
                             noticia = new Motorcycling(dni);
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewMotorcycling((Motorcycling) noticia);
@@ -197,7 +197,7 @@ public class UiConsole {
                         editorsearch = Integer.parseInt(scanner.nextLine());
                         editorsearch--;
                         String dni = dataMethods.getEditorDNI(editorsearch);
-                        dataMethods.shownewsDNI(dni);
+                        dataMethods.showNewsDNI(dni);
                     }
                     catch(Exception ex)
                     {
@@ -215,7 +215,7 @@ public class UiConsole {
                     }
                     else
                     {
-                        dataMethods.shownewsDNI(dataMethods.getEditorDNI(editorsearch));
+                        dataMethods.showNewsDNI(dataMethods.getEditorDNI(editorsearch));
                     }
                 }
                 else {
@@ -232,7 +232,7 @@ public class UiConsole {
                 {
                     int choose = Integer.parseInt(scanner.nextLine());
 
-                    if(dataMethods.rangeNewCorrect(choose));
+                    if(dataMethods.rangeNewCorrect(choose))
                     {
                         choose--;
                         dataMethods.calculatePointsNew(choose);

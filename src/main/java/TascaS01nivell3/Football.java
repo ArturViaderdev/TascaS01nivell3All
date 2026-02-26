@@ -40,7 +40,7 @@ public class Football extends Noticia {
     }
 
     @Override
-    public void CalculatePriceNew() {
+    public void calculatePriceNew() {
        this.setPrice(300);
        if(competition.equals("Liga de Campions"))
        {
@@ -57,7 +57,7 @@ public class Football extends Noticia {
     }
 
     @Override
-    public void CalculatePointsNew() {
+    public void calculatePointsNew() {
         this.setPoints(5);
         if(competition.equals("Liga de Campions"))
         {

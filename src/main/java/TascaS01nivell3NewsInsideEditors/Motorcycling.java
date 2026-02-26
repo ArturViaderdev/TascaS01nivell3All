@@ -18,7 +18,7 @@ public class Motorcycling extends Noticia {
     }
 
     @Override
-    public void CalculatePriceNew() {
+    public void calculatePriceNew() {
         this.setPrice(100);
         if(team.equals("Honda") || team.equals("Yamaha"))
         {
@@ -28,7 +28,7 @@ public class Motorcycling extends Noticia {
     }
 
     @Override
-    public void CalculatePointsNew() {
+    public void calculatePointsNew() {
         this.setPoints(3);
         if(team.equals("Honda") || team.equals("Yamaha"))
         {

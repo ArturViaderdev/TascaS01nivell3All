@@ -29,7 +29,7 @@ public class Basket extends Noticia {
     }
 
     @Override
-    public void CalculatePriceNew() {
+    public void calculatePriceNew() {
         this.setPrice(250);
         if(competition.equals("Eurolliga"))
         {
@@ -42,7 +42,7 @@ public class Basket extends Noticia {
     }
 
     @Override
-    public void CalculatePointsNew() {
+    public void calculatePointsNew() {
         this.setPoints(4);
         if(competition.equals("Eurolliga"))
         {

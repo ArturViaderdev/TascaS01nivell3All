@@ -31,7 +31,7 @@ public class Tenis extends Noticia {
         this.competition = competition;
     }
 
-    private boolean playerexist()
+    private boolean playerExist()
     {
         boolean sal = false;
         boolean encontrado = false;
@@ -59,9 +59,9 @@ public class Tenis extends Noticia {
     }
 
     @Override
-    public void CalculatePriceNew() {
+    public void calculatePriceNew() {
         this.setPrice(150);
-        boolean are = playerexist();
+        boolean are = playerExist();
         if(are)
         {
             this.setPrice(this.getPrice()+100);
@@ -70,9 +70,9 @@ public class Tenis extends Noticia {
     }
 
     @Override
-    public void CalculatePointsNew() {
+    public void calculatePointsNew() {
         this.setPoints(4);
-        boolean are = playerexist();
+        boolean are = playerExist();
         if(are)
         {
             this.setPoints(this.getPoints()+3);

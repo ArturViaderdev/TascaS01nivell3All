@@ -59,7 +59,7 @@ public class Tenis extends Noticia {
     }
 
     @Override
-    public void CalculatePriceNew() {
+    public void calculatePriceNew() {
         this.setPrice(150);
         boolean are = playerexist();
         if(are)
@@ -70,7 +70,7 @@ public class Tenis extends Noticia {
     }
 
     @Override
-    public void CalculatePointsNew() {
+    public void calculatePointsNew() {
         this.setPoints(4);
         boolean are = playerexist();
         if(are)

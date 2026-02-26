@@ -11,7 +11,6 @@ public class Main {
 
         Car secondcar = new Car(160);
         System.out.println("Modifico la variable static.");
-        //secondcar.setModel("Kuga");
         System.out.println("Model car 1 - " + car.getModel());
         System.out.println("Model car 2 - " + secondcar.getModel());
         car.setModel("Kuga");

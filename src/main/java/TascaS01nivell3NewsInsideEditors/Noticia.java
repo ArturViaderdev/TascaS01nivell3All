@@ -6,8 +6,8 @@ abstract class Noticia {
     private double price;
     private int points;
 
-    public abstract void CalculatePriceNew();
-    public abstract void CalculatePointsNew();
+    public abstract void calculatePriceNew();
+    public abstract void calculatePointsNew();
 
     public void setPrice(double price)
     {
