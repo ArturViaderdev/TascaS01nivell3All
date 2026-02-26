@@ -1,8 +1,16 @@
 package Spring1tasca101;
 
 abstract class Instrument {
-    public String name;
-    public double price;
+    protected String name;
+    protected double price;
+
+    abstract void setName(String name);
+
+    abstract String getName();
+
+    abstract void setPrice(double price);
+
+    abstract double getPrice();
 
     abstract void play();
 
@@ -16,7 +24,7 @@ abstract class Instrument {
         System.out.println("S'executa un mètode estàtic.");
     }
 
-    public Instrument()
+    public Instrument(String name, double price)
     {
     }
 
