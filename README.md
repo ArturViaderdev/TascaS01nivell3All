@@ -64,6 +64,7 @@ You can do cd into the project folder you want to execute and execute with:
 ````
 java Main.java
 ````
+The projects are inside src/main/java.
 
 ## Exercise 1 Musical Instruments
 
