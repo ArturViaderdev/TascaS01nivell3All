@@ -109,7 +109,7 @@ public class DataMethods {
 
     public boolean rangeNewCorrect(int choose)
     {
-        if(choose>0 && choose<=news.size()-1)
+        if(choose>0 && choose<=news.size())
         {
             return true;
         }

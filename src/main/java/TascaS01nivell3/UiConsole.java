@@ -253,11 +253,15 @@ public class UiConsole {
                 {
                     int choose = Integer.parseInt(scanner.nextLine());
 
-                    if(dataMethods.rangeNewCorrect(choose));
+                    if(dataMethods.rangeNewCorrect(choose))
                     {
                         choose--;
                         dataMethods.calculatePriceNew(choose);
                         System.out.println("Preu: " + dataMethods.getNewPrice(choose));
+                    }
+                    else
+                    {
+                        System.out.println("Opció incorrecta.");
                     }
                 }
                 catch(Exception ex)

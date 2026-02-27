@@ -12,7 +12,7 @@ public class Main {
         percussionInstrument.play();
         windInstrument.name = "Flauta";
         windInstrument.price = 20;
-        String nom = windInstrument.getName();
+        String name = windInstrument.getName();
         percussionInstrument.setPrice(60);
     }
 }
