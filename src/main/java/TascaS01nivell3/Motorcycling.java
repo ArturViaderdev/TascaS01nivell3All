@@ -8,8 +8,8 @@ public class Motorcycling extends Noticia {
         return team;
     }
 
-    public Motorcycling(String editordni) {
-        super(editordni);
+    public Motorcycling(String editorDni) {
+        super(editorDni);
     }
 
     public void setTeam(String team)

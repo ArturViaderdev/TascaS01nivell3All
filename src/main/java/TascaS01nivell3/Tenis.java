@@ -6,8 +6,8 @@ public class Tenis extends Noticia {
     private String competition;
     private ArrayList<String> players;
 
-    public Tenis(String editordni) {
-        super(editordni);
+    public Tenis(String editorDni) {
+        super(editorDni);
         players = new ArrayList<>();
     }
 
@@ -33,17 +33,17 @@ public class Tenis extends Noticia {
 
     private boolean playerExist()
     {
-        boolean sal = false;
-        boolean encontrado = false;
+        boolean exit = false;
+        boolean found = false;
         int cont = 0;
-        while(!sal)
+        while(!exit)
         {
             if(cont<players.size())
             {
                 if(players.get(cont).contains("Federer")|| players.get(cont).contains("Nadal") || players.get(cont).contains("Djokovic"))
                 {
-                    encontrado = true;
-                    sal = true;
+                    found = true;
+                    exit = true;
                 }
                 else
                 {
@@ -52,10 +52,10 @@ public class Tenis extends Noticia {
             }
             else
             {
-                sal = true;
+                exit = true;
             }
         }
-        return encontrado;
+        return found;
     }
 
     @Override

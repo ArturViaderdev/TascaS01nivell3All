@@ -32,7 +32,7 @@ public class Car {
 
     public static void brake()
     {
-        System.out.println("El vehicle està frenant. CLasse estàtica.");
+        System.out.println("El vehicle està frenant. CLase estàtica.");
     }
 
     public void accelerate()

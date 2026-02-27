@@ -34,11 +34,6 @@ abstract class Noticia {
         return text;
     }
 
-    public String getType()
-    {
-        return this.getClass().toString();
-    }
-
     public void setTitle(String title)
     {
         this.title = title;

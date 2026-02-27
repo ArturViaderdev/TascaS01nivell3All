@@ -5,7 +5,7 @@ abstract class Noticia {
     private String text;
     private double price;
     private int points;
-    private String editordni;
+    private String editorDni;
 
     public abstract void calculatePriceNew();
     public abstract void calculatePointsNew();
@@ -35,11 +35,6 @@ abstract class Noticia {
         return text;
     }
 
-    public String getType()
-    {
-        return this.getClass().toString();
-    }
-
     public void setTitle(String title)
     {
         this.title = title;
@@ -55,13 +50,13 @@ abstract class Noticia {
         return title;
     }
 
-    public String getEditordni()
+    public String getEditorDni()
     {
-        return editordni;
+        return editorDni;
     }
 
     public Noticia(String editorDni)
     {
-        this.editordni = editorDni;
+        this.editorDni = editorDni;
     }
 }

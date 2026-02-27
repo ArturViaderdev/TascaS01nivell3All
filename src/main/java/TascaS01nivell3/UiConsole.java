@@ -85,7 +85,7 @@ public class UiConsole {
             {
                 System.out.println("Introduir noticia a un redactor");
                 System.out.println("-------------------------------");
-                System.out.println("Sel.lecciona a quin redactor afegiras la noticia.");
+                System.out.println("Sel.lecciona a quin redactor afegiràs la noticia.");
                 dataMethods.showEditors();
                 int editorNew;
                 try
@@ -102,9 +102,9 @@ public class UiConsole {
                         System.out.println("4-F1");
                         System.out.println("5-Motociclisme");
 
-                        String newtype = scanner.nextLine();
+                        String newType = scanner.nextLine();
 
-                        if(newtype.equals("1"))
+                        if(newType.equals("1"))
                         {
                             System.out.println("Creant noticia de futbol per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
                             noticia = new Football(dni);
@@ -112,15 +112,15 @@ public class UiConsole {
                             noticia = fillNewFootball((Football) noticia);
                             dataMethods.addNew(noticia);
                         }
-                        else if(newtype.equals("2"))
+                        else if(newType.equals("2"))
                         {
-                            System.out.println("Creant noticia de baquet per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
+                            System.out.println("Creant noticia de bàsket per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
                             noticia = new Basket(dni);
                             noticia = insertTitleTextNew(noticia);
                             noticia = fillNewBasket((Basket) noticia);
                             dataMethods.addNew(noticia);
                         }
-                        else if(newtype.equals("3"))
+                        else if(newType.equals("3"))
                         {
                             System.out.println("Creant noticia de tenis per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
                             noticia = new Tenis(dni);
@@ -128,7 +128,7 @@ public class UiConsole {
                             noticia = fillNewTenis((Tenis) noticia);
                             dataMethods.addNew(noticia);
                         }
-                        else if(newtype.equals("4"))
+                        else if(newType.equals("4"))
                         {
                             System.out.println("Creant noticia de F1 per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
                             noticia = new F1(dni);
@@ -136,7 +136,7 @@ public class UiConsole {
                             noticia = fillNewF1((F1) noticia);
                             dataMethods.addNew(noticia);
                         }
-                        else if(newtype.equals("5"))
+                        else if(newType.equals("5"))
                         {
                             System.out.println("Creant noticia de motociclisme per al redactor " + dataMethods.getEditorName(editorNew-1)) ;
                             noticia = new Motorcycling(dni);
@@ -175,7 +175,7 @@ public class UiConsole {
                 }
                 else if(resultat == 2)
                 {
-                    System.out.println("Existeix una noticia amb aquest títol pero no es de aquest redactor. Operació cancelada.");
+                    System.out.println("Existeix una noticia amb aquest títol però no es de aquest redactor. Operació cancel.lada.");
                 }
 
             }
@@ -186,9 +186,9 @@ public class UiConsole {
                 System.out.println("Vols seleccionar el redactor de una llista o posar el nom?");
                 System.out.println("1 - Seleccionar de llista.");
                 System.out.println("2 - Posar nom.");
-                String selectmode = scanner.nextLine();
+                String selectMode = scanner.nextLine();
                 int editorSearch = 0;
-                if(selectmode.equals("1"))
+                if(selectMode.equals("1"))
                 {
                     dataMethods.showEditors();
                     try
@@ -203,7 +203,7 @@ public class UiConsole {
                         System.out.println("Opció incorrecta");
                     }
                 }
-                else if(selectmode.equals("2"))
+                else if(selectMode.equals("2"))
                 {
                     System.out.println("Introdueix el nom del redactor.");
                     String name = scanner.nextLine();

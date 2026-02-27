@@ -84,7 +84,7 @@ public class DataMethods {
         int cont=0;
         while(cont<news.size())
         {
-            if(news.get(cont).getEditordni().equals(dni))
+            if(news.get(cont).getEditorDni().equals(dni))
             {
                 news.remove(cont);
             }
@@ -159,7 +159,7 @@ public class DataMethods {
         }
         if(found)
         {
-            if(editors.get(searchDni(news.get(cont).getEditordni())).getName().equals(name))
+            if(editors.get(searchDni(news.get(cont).getEditorDni())).getName().equals(name))
             {
                 news.remove(cont);
                 return 0;
@@ -214,7 +214,7 @@ public class DataMethods {
         int cont = 0;
         while(cont<news.size())
         {
-            if(news.get(cont).getEditordni().equals(dni))
+            if(news.get(cont).getEditorDni().equals(dni))
             {
                 showNew(cont);
             }

@@ -20,8 +20,8 @@ public class Football extends Noticia {
         return player;
     }
 
-    public Football(String editordni) {
-        super(editordni);
+    public Football(String editorDni) {
+        super(editorDni);
     }
 
     public void setCompetition(String competition)
