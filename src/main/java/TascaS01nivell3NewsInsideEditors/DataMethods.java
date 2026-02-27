@@ -88,7 +88,7 @@ public class DataMethods {
 
     public boolean rangeNewCorrect(int choose,int editorSearch)
     {
-        if(choose>0 && choose<=editors.get(editorSearch).getNewsSize()-1)
+        if(choose>0 && choose<=editors.get(editorSearch).getNewsSize())
         {
             return true;
         }
