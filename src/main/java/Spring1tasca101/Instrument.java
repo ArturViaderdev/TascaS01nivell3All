@@ -19,13 +19,15 @@ abstract class Instrument {
         System.out.println("Bloc estàtic, s'executa al principi.");
     }
 
-    public static void metodeEstatic()
+    public static void staticMethod()
     {
         System.out.println("S'executa un mètode estàtic.");
     }
 
     public Instrument(String name, double price)
     {
+        this.name = name;
+        this.price = price;
     }
 
     {

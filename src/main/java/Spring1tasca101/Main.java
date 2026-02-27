@@ -2,7 +2,7 @@ package Spring1tasca101;
 
 public class Main {
     public static void main(String[] args) {
-        Instrument.metodeEstatic();
+        Instrument.staticMethod();
         Instrument windInstrument = new WindInstrument("Flauta",20);
         Instrument stringInstrument = new StringInstrument("Piano",300);
         Instrument percussionInstrument = new PercussionInstrument("Tambor",50);
