@@ -62,6 +62,6 @@ abstract class Noticia {
 
     public Noticia(String editorDni)
     {
-        this.editordni = editordni;
+        this.editordni = editorDni;
     }
 }

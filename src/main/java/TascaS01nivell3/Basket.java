@@ -4,8 +4,8 @@ public class Basket extends Noticia {
     private String club;
     private String competition;
 
-    public Basket(String editordni) {
-        super(editordni);
+    public Basket(String editorDni) {
+        super(editorDni);
     }
 
     public String getClub()

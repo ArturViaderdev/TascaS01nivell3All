@@ -26,10 +26,6 @@ public class DataMethods {
 
     private boolean notExistName(String name)
     {
-        int cont = 0;
-        boolean sal = false;
-        boolean encontrado = false;
-
         for(Editor editor:editors)
         {
             if(editor.getName().equals(name))
@@ -42,10 +38,6 @@ public class DataMethods {
 
     private boolean notExistEditor(String dni)
     {
-        int cont = 0;
-        boolean sal = false;
-        boolean encontrado = false;
-
         for(Editor editor:editors)
         {
             if(editor.getDni().equals(dni))
@@ -58,20 +50,20 @@ public class DataMethods {
 
     public void showEditors()
     {
-        int conteditor=0;
-        while(conteditor<editors.size())
+        int contEditor=0;
+        while(contEditor<editors.size())
         {
-            System.out.println(Integer.toString(conteditor +1) + " - Nom:" + editors.get(conteditor).getName() + " DNI - " + editors.get(conteditor).getDni() + " Sou - " + editors.get(conteditor).getSalary());
-            conteditor++;
+            System.out.println(Integer.toString(contEditor +1) + " - Nom:" + editors.get(contEditor).getName() + " DNI - " + editors.get(contEditor).getDni() + " Sou - " + editors.get(contEditor).getSalary());
+            contEditor++;
         }
     }
 
-    public void deleteEditorProcess(int editortodelete)
+    public void deleteEditorProcess(int editorToDelete)
     {
-        if(editors.size()>editortodelete-1)
+        if(editors.size()>editorToDelete-1)
         {
-            String dni = editors.get(editortodelete-1).getDni();
-            deleteEditor(editortodelete-1);
+            String dni = editors.get(editorToDelete-1).getDni();
+            deleteEditor(editorToDelete-1);
             System.out.println("Redactor eliminat");
             System.out.println("Eliminant noticies del redactor.");
             deleteNewsDni(dni);
@@ -81,9 +73,9 @@ public class DataMethods {
         }
     }
 
-    private void deleteEditor(int editortodelete)
+    private void deleteEditor(int editorToDelete)
     {
-        editors.remove(editortodelete);
+        editors.remove(editorToDelete);
         System.out.println("Redactor el.liminat");
     }
 
@@ -103,9 +95,9 @@ public class DataMethods {
         }
     }
 
-    public boolean rangeEditorCorrect(int editornew)
+    public boolean rangeEditorCorrect(int editorNew)
     {
-        if(editornew>0 && (editornew-1)<editors.size())
+        if(editorNew>0 && (editorNew-1)<editors.size())
         {
             return true;
         }
@@ -126,14 +118,14 @@ public class DataMethods {
         }
     }
 
-    public String getEditorDNI(int editornew)
+    public String getEditorDNI(int editorNew)
     {
-        return editors.get(editornew).getDni();
+        return editors.get(editorNew).getDni();
     }
 
-    public String getEditorName(int editornew)
+    public String getEditorName(int editorNew)
     {
-        return editors.get(editornew).getName();
+        return editors.get(editorNew).getName();
     }
 
     public void addNew(Noticia noticia)
@@ -144,16 +136,16 @@ public class DataMethods {
     public int deleteNew(String name, String title)
     {
         int cont = 0;
-        boolean sal = false;
-        boolean encontrado = false;
-        while(!sal)
+        boolean exit = false;
+        boolean found = false;
+        while(!exit)
         {
             if(cont<news.size())
             {
                 if(news.get(cont).getTitle().equals(title))
                 {
-                    encontrado = true;
-                    sal = true;
+                    found = true;
+                    exit = true;
                 }
                 else
                 {
@@ -162,10 +154,10 @@ public class DataMethods {
             }
             else
             {
-                sal = true;
+                exit = true;
             }
         }
-        if(encontrado)
+        if(found)
         {
             if(editors.get(searchDni(news.get(cont).getEditordni())).getName().equals(name))
             {
@@ -186,16 +178,16 @@ public class DataMethods {
     private int searchDni(String dni)
     {
         int cont = 0;
-        boolean sal = false;
-        boolean encontrado = false;
-        while(!sal)
+        boolean exit = false;
+        boolean found = false;
+        while(!exit)
         {
             if(cont<editors.size())
             {
                 if(editors.get(cont).getDni().equals(dni))
                 {
-                    encontrado = true;
-                    sal = true;
+                    found = true;
+                    exit = true;
                 }
                 else
                 {
@@ -204,10 +196,10 @@ public class DataMethods {
             }
             else
             {
-                sal = true;
+                exit = true;
             }
         }
-        if(encontrado)
+        if(found)
         {
             return cont;
         }
@@ -273,7 +265,7 @@ public class DataMethods {
         }
         else if(news.get(position) instanceof Tenis)
         {
-            System.out.println("Tipus de noticis: Tenis");
+            System.out.println("Tipus de noticia: Tenis");
             Tenis noticia = (Tenis) news.get(position);
             System.out.println("Competició: " + noticia.getCompetition());
             System.out.println("Llista de tenistes:");
@@ -316,17 +308,17 @@ public class DataMethods {
     public boolean deleteEditorDni(String dni)
     {
         int cont = 0;
-        boolean sal = false;
-        boolean encontrado = false;
+        boolean exit = false;
+        boolean found = false;
 
-        while(!sal)
+        while(!exit)
         {
             if(cont<editors.size())
             {
                 if(editors.get(cont).getDni().equals(dni))
                 {
-                    encontrado = true;
-                    sal = true;
+                    found = true;
+                    exit = true;
                 }
                 else
                 {
@@ -335,29 +327,29 @@ public class DataMethods {
             }
             else
             {
-                sal = true;
+                exit = true;
             }
         }
-        if(encontrado)
+        if(found)
         {
             editors.remove(cont);
         }
-        return encontrado;
+        return found;
     }
 
     public int searchName(String name)
     {
         int cont = 0;
-        boolean sal = false;
-        boolean encontrado = false;
-        while(!sal)
+        boolean exit = false;
+        boolean found = false;
+        while(!exit)
         {
             if(cont<editors.size())
             {
                 if(editors.get(cont).getName().equals(name))
                 {
-                    encontrado = true;
-                    sal = true;
+                    found = true;
+                    exit = true;
                 }
                 else
                 {
@@ -366,10 +358,10 @@ public class DataMethods {
             }
             else
             {
-                sal = true;
+                exit = true;
             }
         }
-        if(encontrado)
+        if(found)
         {
             return cont;
         }
