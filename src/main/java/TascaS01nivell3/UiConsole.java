@@ -155,7 +155,6 @@ public class UiConsole {
                 {
                     System.out.println("Opció incorrecta");
                 }
-
             }
             else if(opcio.equals("4"))
             {

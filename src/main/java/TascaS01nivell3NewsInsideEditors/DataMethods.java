@@ -11,7 +11,7 @@ public class DataMethods {
 
     public void insertEditor(String dni, String name)
     {
-        if(notExistEditor(dni) && noExistName(name))
+        if(notExistEditor(dni) && notExistName(name))
         {
             editors.add(new Editor(dni,name));
             System.out.println("Editor afegit");
@@ -21,7 +21,7 @@ public class DataMethods {
         }
     }
 
-    private boolean noExistName(String name)
+    private boolean notExistName(String name)
     {
         int cont = 0;
         boolean sal = false;

@@ -24,7 +24,6 @@ public class Motorcycling extends Noticia {
         {
             this.setPrice(this.getPrice()+50);
         }
-
     }
 
     @Override

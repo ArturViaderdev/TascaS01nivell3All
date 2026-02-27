@@ -20,6 +20,5 @@ public class Main {
         System.out.println("Les variables static afecten a totes les instàncies de la classe.");
 
         car.accelerate();
-
     }
 }
