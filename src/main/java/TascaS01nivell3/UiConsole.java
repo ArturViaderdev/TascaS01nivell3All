@@ -187,15 +187,15 @@ public class UiConsole {
                 System.out.println("1 - Seleccionar de llista.");
                 System.out.println("2 - Posar nom.");
                 String selectmode = scanner.nextLine();
-                int editorsearch = 0;
+                int editorSearch = 0;
                 if(selectmode.equals("1"))
                 {
                     dataMethods.showEditors();
                     try
                     {
-                        editorsearch = Integer.parseInt(scanner.nextLine());
-                        editorsearch--;
-                        String dni = dataMethods.getEditorDNI(editorsearch);
+                        editorSearch = Integer.parseInt(scanner.nextLine());
+                        editorSearch--;
+                        String dni = dataMethods.getEditorDNI(editorSearch);
                         dataMethods.showNewsDNI(dni);
                     }
                     catch(Exception ex)
@@ -207,14 +207,14 @@ public class UiConsole {
                 {
                     System.out.println("Introdueix el nom del redactor.");
                     String name = scanner.nextLine();
-                    editorsearch = dataMethods.searchName(name);
-                    if (editorsearch == -1)
+                    editorSearch = dataMethods.searchName(name);
+                    if (editorSearch == -1)
                     {
                         System.out.println("No es troba el redactor");
                     }
                     else
                     {
-                        dataMethods.showNewsDNI(dataMethods.getEditorDNI(editorsearch));
+                        dataMethods.showNewsDNI(dataMethods.getEditorDNI(editorSearch));
                     }
                 }
                 else {

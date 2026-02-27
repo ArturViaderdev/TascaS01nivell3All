@@ -2,7 +2,7 @@ package TascaS01nivell3;
 
 public class Editor {
     private String name;
-    private final String dni;
+    private String dni;
     private static double salary = 1500;
 
     public Editor(String dni, String name) {
