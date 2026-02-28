@@ -59,6 +59,7 @@ The project is structured in three levels of increasing complexity.
 1. Clone the repository:
 ````bash
 git clone https://github.com/ArturViaderdev/TascaS01nivell3All.git
+cd TascaS01nivell3All
 ````
 You can do cd into the project folder you want to execute and execute with:
 ````
