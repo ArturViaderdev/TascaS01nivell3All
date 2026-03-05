@@ -31,7 +31,7 @@ public class F1 extends Noticia {
         this.setPoints(4);
         if(team.equals("Ferrari") || team.equals("Mercedes"))
         {
-            this.setPoints(this.getPoints()+4);
+            this.setPoints(this.getPoints()+2);
         }
     }
 }
